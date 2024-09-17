@@ -15,7 +15,7 @@ if(isset($_POST['email']) && !empty($_POST['email'])){
 	    }
 
 	
-		$to = "test@layoutflow.com";
+		$to = "greenconsulting@greenconsultingingenieria.com";
 		$mail_subject = "Contact Query From $name | Message ID ".$timestamp_capture;
 		$mail_message = "
 		<br>
