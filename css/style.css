@@ -172,12 +172,12 @@ body {
 	a.showmenu, a.hidemenu{
 		display: none;
 		position: fixed;
-		width: 48px;
-		height: 48px;
+		width: 44px;
+		height: 44px;
 		color: var(--white);
-		font-size: 24px;
-		top: 1.25rem;
-		right: 1.5rem;
+		font-size: 22px;
+		top: 0.5rem;
+		right: 1rem;
 		z-index: 1001;
 		background: var(--gradient-primary);
 		border-radius: var(--radius-md);

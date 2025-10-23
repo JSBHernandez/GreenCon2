@@ -127,22 +127,16 @@ const initSmoothNav = () => {
 		// Ordenar secciones por posición
 		sections.sort((a, b) => a.top - b.top);
 		
-		// DEBUG: Ver qué se detecta
-		console.log('Scroll Y:', window.scrollY, 'Scroll Position:', scrollPosition);
-		console.log('Sections:', sections.map(s => ({ id: s.id, top: s.top, bottom: s.bottom })));
-		
 		// Encontrar la sección actual basada en la posición del scroll
 		for (let i = sections.length - 1; i >= 0; i--) {
 			if (scrollPosition >= sections[i].top - 100) {
 				currentSection = sections[i].id;
-				console.log('Sección detectada:', currentSection);
 				break;
 			}
 		}
 		
 		// Actualizar clases active solo si cambió
 		if (lastId !== currentSection) {
-			console.log('Cambiando de', lastId, 'a', currentSection);
 			lastId = currentSection;
 			menuItems.forEach(item => {
 				const parent = item.parentElement;
@@ -150,7 +144,6 @@ const initSmoothNav = () => {
 				
 				if (href === `#${currentSection}`) {
 					parent.classList.add('active');
-					console.log('Activado:', href);
 				} else {
 					parent.classList.remove('active');
 				}
@@ -173,14 +166,23 @@ const initMobileMenu = () => {
 	const body = document.body;
 
 	showBtn.addEventListener('click', () => {
-		nav.style.display = 'block';
-		setTimeout(() => nav.style.opacity = '1', 10);
-		hideBtn.style.display = 'block';
+		nav.classList.add('open');
+		hideBtn.style.display = 'flex';
 		body.classList.add('disablescroll');
 	});
 
 	hideBtn.addEventListener('click', () => {
 		closeMobileMenu();
+	});
+	
+	// Cerrar menú al hacer click en un enlace
+	const menuLinks = $$('nav a');
+	menuLinks.forEach(link => {
+		link.addEventListener('click', () => {
+			if (window.innerWidth <= 1280) {
+				closeMobileMenu();
+			}
+		});
 	});
 };
 
@@ -189,8 +191,7 @@ const closeMobileMenu = () => {
 	const hideBtn = $('.hidemenu');
 	const body = document.body;
 	
-	nav.style.opacity = '0';
-	setTimeout(() => nav.style.display = 'none', 300);
+	nav.classList.remove('open');
 	hideBtn.style.display = 'none';
 	body.classList.remove('disablescroll');
 };
