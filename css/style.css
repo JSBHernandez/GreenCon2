@@ -169,7 +169,8 @@ body {
 	}
 
 	/* Mobile Menu Buttons */
-	a.showmenu, a.hidemenu{
+	a.showmenu, a.hidemenu,
+	button.showmenu, button.hidemenu{
 		display: none;
 		position: fixed;
 		width: 44px;
@@ -180,6 +181,7 @@ body {
 		right: 1rem;
 		z-index: 1001;
 		background: var(--gradient-primary);
+		border: none;
 		border-radius: var(--radius-md);
 		justify-content: center;
 		align-items: center;
@@ -188,7 +190,8 @@ body {
 		box-shadow: var(--shadow-lg);
 	}
 	
-	a.showmenu:hover, a.hidemenu:hover {
+	a.showmenu:hover, a.hidemenu:hover,
+	button.showmenu:hover, button.hidemenu:hover {
 		transform: scale(1.1);
 		box-shadow: var(--shadow-glow);
 	}

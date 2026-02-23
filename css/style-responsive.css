@@ -15,11 +15,11 @@
 	}
 
 	/* Mobile Menu */
-	a.showmenu{
+	a.showmenu, button.showmenu{
 		display: flex;
 	}
 	
-	a.hidemenu{
+	a.hidemenu, button.hidemenu{
 		display: flex;
 	}
 	
