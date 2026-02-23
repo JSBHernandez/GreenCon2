@@ -1,0 +1,10 @@
+# robots.txt para Green Consulting Ingeniería
+User-agent: *
+Allow: /
+Disallow: /form/
+
+# Sitemap
+Sitemap: https://greenconsultingingenieria.com/sitemap.xml
+
+# Crawl-delay
+Crawl-delay: 1
